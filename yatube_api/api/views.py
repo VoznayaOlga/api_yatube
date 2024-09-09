@@ -28,9 +28,6 @@ class PostViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         serializer.save(author=self.request.user, pub_date=timezone.now())
 
-    def perform_destroy(self, instance):
-        return super().perform_destroy(instance)
-
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
