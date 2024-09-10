@@ -34,5 +34,5 @@ class CommentViewSet(viewsets.ModelViewSet):
         return self.get_post().comments.all()
 
     def perform_create(self, serializer):
-        serializer.save(created=timezone.now(), author=self.request.user,
+        serializer.save(author=self.request.user,
                         post=self.get_post())
